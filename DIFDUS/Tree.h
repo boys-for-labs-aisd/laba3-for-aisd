@@ -7,8 +7,9 @@ private:
 	Node* left; // левый сын
 	// Node* middle;
 	Node* right; // правый сын
+	int descendants;
 public:
-	Node() : left(nullptr), right(nullptr) {} // конструктор узла
+	Node() : left(nullptr), right(nullptr), descendants(0) {} // конструктор узла
 	~Node() { // деструктор поддерева
 		if (left) delete left;
 		if (right) delete right;
@@ -40,5 +41,8 @@ public:
 	bool exist() { return root != nullptr; } // проверка "дерево пусто"
 	int DFS(); // обход дерева в глубину
 	int BFS(); // обход в ширину
+	void FindDescendants(Node*);
 	void OutTree(); // выдача на экран
+	void OutDescendants();
+	Node* Root() { return root; }
 };

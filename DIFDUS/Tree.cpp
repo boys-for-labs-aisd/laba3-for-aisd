@@ -99,3 +99,26 @@ int Tree::BFS() {
 	}
 	return count;
 }
+
+void Tree::FindDescendants(Node* root) {
+	if (root->left) {
+		FindDescendants(root->left);
+		root->descendants += root->left->descendants + 1;
+	}
+	if (root->right) {
+		FindDescendants(root->right);
+		root->descendants += root->right->descendants + 1;
+	}
+}
+
+void Tree::OutDescendants() {
+	const int MaxQ = 20;
+	QUEUE <Node*> Q(MaxQ);
+	Q.push(root);
+	while (!Q.empty()) {
+		Node* v = Q.pop();
+		std::cout << v->d << ": " << v->descendants << std::endl;
+		if (v->left) Q.push(v->left);
+		if (v->right) Q.push(v->right);
+	}
+}

@@ -25,7 +25,9 @@ int main()
         cout << " Пройдено узлов = " << n;
     }
     else cout << "Дерево пусто!";
-    cout << endl << "===Конец===";
+    cout << endl;
+    Tr.FindDescendants(Tr.Root());
+    Tr.OutDescendants();
     cin.get();
 
     return 0;
