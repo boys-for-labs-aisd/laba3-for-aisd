@@ -39,9 +39,9 @@ Node* Tree::MakeNode(int depth) {
 	//std::cin >> Y;
 	if (Y) {
 		v = new Node;
-		v->d = num++; // разметка в прямом порядке(="в глубину")
+		// v->d = num++; // разметка в прямом порядке(="в глубину")
 		v->left = MakeNode(depth + 1);
-		// v->d = num++; вариант - во внутреннем
+		v->d = num++; // вариант - во внутреннем
 		v->right = MakeNode(depth + 1);
 		// v->d = num++; вариант - в обратном
 	}
