@@ -112,13 +112,13 @@ void Tree::FindDescendants(Node* root) {
 }
 
 void Tree::OutDescendants() {
-	const int MaxQ = 20;
-	QUEUE <Node*> Q(MaxQ);
-	Q.push(root);
-	while (!Q.empty()) {
-		Node* v = Q.pop();
+	const int MaxS = 20;
+	STACK <Node*> S(MaxS);
+	S.push(root);
+	while (!S.empty()) {
+		Node* v = S.pop();
 		std::cout << v->d << ": " << v->descendants << std::endl;
-		if (v->left) Q.push(v->left);
-		if (v->right) Q.push(v->right);
+		if (v->left) S.push(v->left);
+		if (v->right) S.push(v->right);
 	}
 }
